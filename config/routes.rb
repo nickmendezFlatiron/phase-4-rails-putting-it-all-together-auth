@@ -1,3 +1,14 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :recipes , only: [:index , :create]
+  # resources :users
+  
+  #Users Controller
+  post "/signup" , to: "users#create"
+  get "/me" , to: "users#show"
+
+  #Sessions Controller
+  post "/login", to: "sessions#create"
+  delete "/logout" ,to: "sessions#destroy"
+
+  #Recipes Controller
 end
